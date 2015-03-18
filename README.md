@@ -9,4 +9,7 @@ You can download the sample apk [here](https://raw.githubusercontent.com/naman14
 
 ![alt tag](https://raw.githubusercontent.com/naman14/MaterialPowerMenu/master/demo.gif)
 
+ Concept by Igor Da Silva
+ https://dribbble.com/shots/1939117-Advanced-Power-Menu-Concept-Android-Lollipop﻿
+
 

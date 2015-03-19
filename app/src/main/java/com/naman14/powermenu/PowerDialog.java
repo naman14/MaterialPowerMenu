@@ -14,6 +14,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.os.Handler;
+import android.os.Looper;
+
+import eu.chainfire.libsuperuser.Shell;
 
 public class PowerDialog extends DialogFragment {
 
@@ -27,6 +32,16 @@ public class PowerDialog extends DialogFragment {
     private View selectedView;
     private int backgroundColor;
     ProgressBar progress,progress2;
+
+    private static final String SHUTDOWN_BROADCAST
+            = "am broadcast android.intent.action.ACTION_SHUTDOWN";
+    private static final String SHUTDOWN = "reboot -p";
+    private static final String REBOOT_CMD = "reboot";
+
+    private static final int BG_PRIO = android.os.Process.THREAD_PRIORITY_BACKGROUND;
+    private static final int RUNNABLE_DELAY_MS = 1000;
+
+    protected TextView mRootStatusSummary;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +83,8 @@ public class PowerDialog extends DialogFragment {
                 ((MainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame3.setVisibility(View.VISIBLE);
+
+                new BackgroundThread(REBOOT_CMD).start();
             }
         });
         power.setOnClickListener(new View.OnClickListener() {
@@ -88,13 +105,71 @@ public class PowerDialog extends DialogFragment {
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
+                new BackgroundThread(SHUTDOWN).start();
+
 
             }
         });
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                setThreadPrio(BG_PRIO);
+
+                if (Shell.SU.available()) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (mRootStatusSummary != null) {
+                                mRootStatusSummary.setText("Root Available");
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
+
         return view;
 
+    }
+
+    private static void setThreadPrio(int prio) {
+        android.os.Process.setThreadPriority(prio);
+    }
+
+    private static class BackgroundThread extends Thread {
+        private Object sCmd;
+
+        private BackgroundThread(Object cmd) {
+            this.sCmd = cmd;
+        }
+
+        @Override
+        public void run() {
+            super.run();
+            setThreadPrio(BG_PRIO);
+
+            if (sCmd == null)
+                return;
+
+            /**
+             * Sending a system broadcast to notify apps and the system that we're going down
+             * so that they write any outstanding data that might need to be flushed
+             */
+            Shell.SU.run(SHUTDOWN_BROADCAST);
+
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (sCmd instanceof String)
+                        Shell.SU.run((String) sCmd);
+                    else if (sCmd instanceof String[])
+                        Shell.SU.run((String[]) sCmd);
+                }
+            }, RUNNABLE_DELAY_MS);
+        }
     }
 
     @Override public void onStart() {
@@ -133,4 +208,7 @@ public class PowerDialog extends DialogFragment {
         getDialog().getWindow()
                 .getAttributes().windowAnimations = R.style.DialogAnimation;
     }
+
+
+
 }

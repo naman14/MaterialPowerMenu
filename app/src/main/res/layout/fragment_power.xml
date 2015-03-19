@@ -91,7 +91,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:text="Airplane Mode"
+                android:text="Soft Reboot"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:layout_marginLeft="20dp"
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Airplane Mode is turned off"
+                    android:text="Simply restarts the Android UI by killing zygote process"
                     android:layout_marginLeft="20dp"
                     android:textColor="#000000"
                     android:textSize="9sp"/>

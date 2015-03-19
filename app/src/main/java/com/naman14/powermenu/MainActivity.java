@@ -2,16 +2,22 @@ package com.naman14.powermenu;
 
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Display;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import eu.chainfire.libsuperuser.Shell;
 
 
 public class MainActivity extends ActionBarActivity implements DialogInterface.OnDismissListener{
@@ -20,18 +26,38 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     private CircularRevealView revealView;
     private View selectedView;
     private int backgroundColor;
-    private Button button;
+    RelativeLayout layout;
+    LinearLayout source,rate,share,about;
+    private ImageView button;
     int maxX,maxY;
     android.os.Handler handler;
+    private static final int BG_PRIO = android.os.Process.THREAD_PRIORITY_BACKGROUND;
+    protected TextView mRootStatusSummary;
+
+    String Urlgithub="https://github.com/naman14/MaterialPowerMenu";
+    String Urlrate="https://play.google.com/store/apps/details?id=com.naman14.powermenu";
+    String Urlapps="https://play.google.com/store/apps/developer?id=Naman14";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Material Power Menu");
+
+
         revealView=(CircularRevealView) findViewById(R.id.reveal);
-        backgroundColor = Color.parseColor("#212121");
-         button =(Button) findViewById(R.id.button);
+        backgroundColor = Color.parseColor("#303030");
+         button =(ImageView) findViewById(R.id.button);
+        mRootStatusSummary=(TextView) findViewById(R.id.rootstatus);
+        layout=(RelativeLayout) findViewById(R.id.layout);
+
+        source=(LinearLayout) findViewById(R.id.source);
+        rate=(LinearLayout) findViewById(R.id.rate);
+        share=(LinearLayout) findViewById(R.id.share);
+        about=(LinearLayout) findViewById(R.id.about);
 
         Display mdisp = getWindowManager().getDefaultDisplay();
         Point mdispSize = new Point();
@@ -49,11 +75,69 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
                     selectedView = v;
 
                 showPowerDialog();
-                button.setVisibility(View.GONE);
+
+                layout.setVisibility(View.GONE);
+
+           }
+        });
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                setThreadPrio(BG_PRIO);
+
+                if (Shell.SU.available()) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (mRootStatusSummary != null) {
+                                mRootStatusSummary.setText("Available");
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
+
+        source.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(Urlgithub));
+                startActivity(i);
+            }
+        });
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(Urlrate));
+                startActivity(i);
+            }
+        });
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(Urlapps));
+                startActivity(i);
+            }
+        });
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Material Power Menu");
+                String sAux = "\nCheck out this beautiful app to add rebooting functionality to your rooted android device\n\n";
+                sAux = sAux + "https://play.google.com/store/apps/details?id=com.naman14.powermenu \n\n";
+                i.putExtra(Intent.EXTRA_TEXT, sAux);
+                startActivity(Intent.createChooser(i, "Choose one"));
             }
         });
     }
-
+    private static void setThreadPrio(int prio) {
+        android.os.Process.setThreadPriority(prio);
+    }
 
     private Point getLocationInView(View src, View target) {
         final int[] l0 = new int[2];
@@ -70,27 +154,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     public void revealFromTop() {
         final int color = Color.parseColor("#ffffff");
 
@@ -110,7 +174,8 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     }
     @Override
     public void onDismiss(final DialogInterface dialog) {
-        final Point p=new Point(maxX/2,maxY/2);
+        View v=button;
+        final Point p=getLocationInView(revealView, v);
 
         handler=new Handler();
         handler.postDelayed(new Runnable() {
@@ -125,7 +190,8 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-               button.setVisibility(View.VISIBLE);
+
+                layout.setVisibility(View.VISIBLE);
             }
         }, 500);
 

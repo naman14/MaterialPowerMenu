@@ -80,7 +80,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_airplane"
+            android:src="@drawable/ic_soft_reboot"
             android:layout_margin="15dp"/>
 
         <LinearLayout
@@ -152,18 +152,18 @@
                 android:layout_gravity="center"
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_airplane"
+                android:src="@drawable/recovery"
 
                 />
             <TextView
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_width="96dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Recovery"
                 android:textColor="#000000"
-                android:textSize="14sp"
+                android:textSize="10sp"
                 />
             </LinearLayout>
         <LinearLayout
@@ -182,18 +182,18 @@
                 android:gravity="center"
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_airplane"
+                android:src="@drawable/ic_bootloader"
 
                 />
             <TextView
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_width="96dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bootloader"
                 android:textColor="#000000"
-                android:textSize="14sp"
+                android:textSize="10sp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -212,18 +212,18 @@
                 android:layout_weight="1"
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_airplane"
+                android:src="@drawable/ic_safe"
 
                 />
             <TextView
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_width="96dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Safe Mode"
                 android:textColor="#000000"
-                android:textSize="14sp"
+                android:textSize="10sp"
                 />
         </LinearLayout>
     </LinearLayout>

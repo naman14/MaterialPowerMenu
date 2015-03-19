@@ -47,7 +47,6 @@ public class PowerDialog extends DialogFragment {
     private static final int BG_PRIO = android.os.Process.THREAD_PRIORITY_BACKGROUND;
     private static final int RUNNABLE_DELAY_MS = 1000;
 
-    protected TextView mRootStatusSummary;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,7 +130,7 @@ public class PowerDialog extends DialogFragment {
         soft_reboot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int color = Color.parseColor("#d32f2f");
+                final int color = Color.parseColor("#e91e63");
                 final Point p = getLocationInView(revealView, v);
 
                 if (selectedView == v) {
@@ -157,7 +156,7 @@ public class PowerDialog extends DialogFragment {
         recovery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int color = Color.parseColor("#d32f2f");
+                final int color = Color.parseColor("#8bc34a");
                 final Point p = getLocationInView(revealView, v);
 
                 if (selectedView == v) {
@@ -183,7 +182,7 @@ public class PowerDialog extends DialogFragment {
         bootloader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int color = Color.parseColor("#d32f2f");
+                final int color = Color.parseColor("#277b71");
                 final Point p = getLocationInView(revealView, v);
 
                 if (selectedView == v) {
@@ -209,7 +208,7 @@ public class PowerDialog extends DialogFragment {
         safemode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int color = Color.parseColor("#d32f2f");
+                final int color = Color.parseColor("#009688");
                 final Point p = getLocationInView(revealView, v);
 
                 if (selectedView == v) {
@@ -234,24 +233,6 @@ public class PowerDialog extends DialogFragment {
         });
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                setThreadPrio(BG_PRIO);
-
-                if (Shell.SU.available()) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (mRootStatusSummary != null) {
-                                mRootStatusSummary.setText("Root Available");
-                            }
-                        }
-                    });
-                }
-            }
-        }).start();
 
         return view;
 

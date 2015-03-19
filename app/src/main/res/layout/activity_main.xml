@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
      tools:context=".MainActivity">
@@ -13,14 +14,210 @@
         android:id="@+id/reveal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#212121"/>
+        android:background="#303030"/>
 
-    <Button
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layout">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#607d8b"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/lroot"
+            android:layout_below="@id/toolbar"
+            android:orientation="horizontal"
+            android:background="#37474f">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Root Status"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unavailable"
+                android:id="@+id/rootstatus"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:layout_marginRight="30dp"
+                />
+            </LinearLayout>
+
+
+        <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/power"
+        android:layout_below="@id/lroot"
+        android:id="@+id/button"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:gravity="center"
+                android:id="@+id/layout2"
+                android:layout_below="@id/button"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_gravity="left"
+                    android:paddingTop="15dp"
+                    android:id="@+id/source">
+                    <ImageView
+
+                        android:layout_width="80dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/github"
+
+                        />
+                    <TextView
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Source"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:paddingTop="15dp"
+                    android:id="@+id/rate">
+                    <ImageView
+
+                        android:layout_width="80dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/rate"
+                        />
+                    <TextView
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rate"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_gravity="right"
+                    android:paddingTop="15dp"
+                    android:id="@+id/share">
+                    <ImageView
+
+                        android:layout_width="80dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/share"
+
+                        />
+                    <TextView
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Share"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+<LinearLayout
+    android:id="@+id/about"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:minHeight="64dp"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:layout_below="@id/layout2"
+    android:layout_marginTop="35dp"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@android:color/white"
-        android:text="Start"
-        android:id="@+id/button"/>
+        android:text="Developed by Naman Dwivedi"
+        android:paddingBottom="2dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Material Power Menu is completely free and Ad-Free, If you liked this app you can donate to me by purchasing one of my paid app. Click here to see my other apps."
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#ffffff"
+        android:textSize="14sp"/>
+</LinearLayout>
+
+        </RelativeLayout>
+        </ScrollView>
     </FrameLayout>
 </LinearLayout>

@@ -26,7 +26,7 @@ public class PowerDialog extends DialogFragment {
 
     }
 
-    LinearLayout power,reboot,soft_reboot;
+    LinearLayout power,reboot,soft_reboot,recovery,bootloader,safemode;
     FrameLayout frame,frame2;
     private CircularRevealView revealView;
     private View selectedView;
@@ -61,6 +61,10 @@ public class PowerDialog extends DialogFragment {
         power=(LinearLayout) view.findViewById(R.id.power);
         reboot=(LinearLayout) view.findViewById(R.id.reboot);
         soft_reboot=(LinearLayout) view.findViewById(R.id.soft_reboot);
+        recovery=(LinearLayout) view.findViewById(R.id.recovery);
+        bootloader=(LinearLayout) view.findViewById(R.id.bootloader);
+        safemode=(LinearLayout) view.findViewById(R.id.safemode);
+
         frame=(FrameLayout) view.findViewById(R.id.frame);
         frame2=(FrameLayout) view.findViewById(R.id.frame2);
 
@@ -146,6 +150,84 @@ public class PowerDialog extends DialogFragment {
                 status_detail.setText("Rebooting...");
 
                 new BackgroundThread(REBOOT_SOFT_REBOOT_CMD).start();
+
+
+            }
+        });
+        recovery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int color = Color.parseColor("#d32f2f");
+                final Point p = getLocationInView(revealView, v);
+
+                if (selectedView == v) {
+                    revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
+                    selectedView = null;
+                } else {
+                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    selectedView = v;
+                }
+
+                ((MainActivity)getActivity()).revealFromTop();
+                frame.setVisibility(View.GONE);
+                frame2.setVisibility(View.VISIBLE);
+
+                status.setText("Reboot Recovery");
+                status_detail.setText("Rebooting...");
+
+                new BackgroundThread(REBOOT_RECOVERY_CMD).start();
+
+
+            }
+        });
+        bootloader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int color = Color.parseColor("#d32f2f");
+                final Point p = getLocationInView(revealView, v);
+
+                if (selectedView == v) {
+                    revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
+                    selectedView = null;
+                } else {
+                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    selectedView = v;
+                }
+
+                ((MainActivity)getActivity()).revealFromTop();
+                frame.setVisibility(View.GONE);
+                frame2.setVisibility(View.VISIBLE);
+
+                status.setText("Reboot Bootloader");
+                status_detail.setText("Rebooting...");
+
+                new BackgroundThread(REBOOT_BOOTLOADER_CMD).start();
+
+
+            }
+        });
+        safemode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int color = Color.parseColor("#d32f2f");
+                final Point p = getLocationInView(revealView, v);
+
+                if (selectedView == v) {
+                    revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
+                    selectedView = null;
+                } else {
+                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    selectedView = v;
+                }
+
+                ((MainActivity)getActivity()).revealFromTop();
+                frame.setVisibility(View.GONE);
+                frame2.setVisibility(View.VISIBLE);
+
+                status.setText("Safe Mode");
+                status_detail.setText("Rebooting...");
+
+                new BackgroundThread(REBOOT_SAFE_MODE).start();
 
 
             }

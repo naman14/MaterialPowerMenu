@@ -26,17 +26,23 @@ public class PowerDialog extends DialogFragment {
 
     }
 
-    LinearLayout power,reboot;
-    FrameLayout frame,frame2,frame3;
+    LinearLayout power,reboot,soft_reboot;
+    FrameLayout frame,frame2;
     private CircularRevealView revealView;
     private View selectedView;
     private int backgroundColor;
-    ProgressBar progress,progress2;
+    ProgressBar progress;
+    TextView status,status_detail;
 
     private static final String SHUTDOWN_BROADCAST
             = "am broadcast android.intent.action.ACTION_SHUTDOWN";
     private static final String SHUTDOWN = "reboot -p";
     private static final String REBOOT_CMD = "reboot";
+    private static final String REBOOT_SOFT_REBOOT_CMD = "setprop ctl.restart zygote";
+    private static final String REBOOT_RECOVERY_CMD = "reboot recovery";
+    private static final String REBOOT_BOOTLOADER_CMD = "reboot bootloader";
+    private static final String[] REBOOT_SAFE_MODE
+            = new String[]{"setprop persist.sys.safemode 1", REBOOT_SOFT_REBOOT_CMD};
 
     private static final int BG_PRIO = android.os.Process.THREAD_PRIORITY_BACKGROUND;
     private static final int RUNNABLE_DELAY_MS = 1000;
@@ -54,18 +60,20 @@ public class PowerDialog extends DialogFragment {
         backgroundColor = Color.parseColor("#ffffff");
         power=(LinearLayout) view.findViewById(R.id.power);
         reboot=(LinearLayout) view.findViewById(R.id.reboot);
+        soft_reboot=(LinearLayout) view.findViewById(R.id.soft_reboot);
         frame=(FrameLayout) view.findViewById(R.id.frame);
         frame2=(FrameLayout) view.findViewById(R.id.frame2);
-        frame3=(FrameLayout) view.findViewById(R.id.frame3);
+
+        status=(TextView) view.findViewById(R.id.status);
+        status_detail=(TextView) view.findViewById(R.id.status_detail);
+
         progress=(ProgressBar) view.findViewById(R.id.progress);
-        progress2=(ProgressBar) view.findViewById(R.id.progress2);
+
 
         progress.getIndeterminateDrawable().setColorFilter(
                 Color.parseColor("#ffffff"),
                 android.graphics.PorterDuff.Mode.SRC_IN);
-        progress2.getIndeterminateDrawable().setColorFilter(
-                Color.parseColor("#ffffff"),
-                android.graphics.PorterDuff.Mode.SRC_IN);
+
         reboot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +90,10 @@ public class PowerDialog extends DialogFragment {
 
                 ((MainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
-                frame3.setVisibility(View.VISIBLE);
+                frame2.setVisibility(View.VISIBLE);
+
+                status.setText("Reboot");
+                status_detail.setText("Rebooting...");
 
                 new BackgroundThread(REBOOT_CMD).start();
             }
@@ -105,7 +116,36 @@ public class PowerDialog extends DialogFragment {
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
+                status.setText("Power Off");
+                status_detail.setText("Shutting down...");
+
                 new BackgroundThread(SHUTDOWN).start();
+
+
+            }
+        });
+        soft_reboot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int color = Color.parseColor("#d32f2f");
+                final Point p = getLocationInView(revealView, v);
+
+                if (selectedView == v) {
+                    revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
+                    selectedView = null;
+                } else {
+                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    selectedView = v;
+                }
+
+                ((MainActivity)getActivity()).revealFromTop();
+                frame.setVisibility(View.GONE);
+                frame2.setVisibility(View.VISIBLE);
+
+                status.setText("Soft Reboot");
+                status_detail.setText("Rebooting...");
+
+                new BackgroundThread(REBOOT_SOFT_REBOOT_CMD).start();
 
 
             }

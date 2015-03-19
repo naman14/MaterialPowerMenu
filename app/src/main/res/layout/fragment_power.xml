@@ -73,6 +73,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/soft_reboot"
         android:layoutAnimation="@anim/layout_controller_push_up_in"
         android:orientation="horizontal">
 
@@ -132,7 +133,6 @@
         android:layoutAnimation="@anim/layout_controller_fade_in"
         android:layout_gravity="fill_horizontal"
         android:gravity="center"
-
         android:orientation="horizontal" >
 
         <ImageView
@@ -199,6 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Power Off"
+                android:id="@+id/status"
                 android:layout_marginLeft="10dp"
                 android:textColor="#ffffff"
                 android:textSize="20sp"/>
@@ -210,6 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Shutting Down..."
+                    android:id="@+id/status_detail"
                     android:layout_marginLeft="10dp"
                     android:textColor="#ffffff"
                     android:textSize="10sp"/>
@@ -219,56 +221,6 @@
 
             </LinearLayout>
         </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/frame3"
-        android:layout_gravity="center"
-        android:layout_marginRight="20dp"
-        android:visibility="gone">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:id="@+id/progress2"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Reboot"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layoutAnimation="@anim/layout_controller_push_up_in">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rebooting..."
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#ffffff"
-                        android:textSize="10sp"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </FrameLayout>
 </FrameLayout>
 

@@ -8,9 +8,23 @@
         <item name="colorAccent">#607D8B</item>
     </style>
 
+    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">#607D8B</item>
+        <item name="colorPrimaryDark">#455A64</item>
+        <item name="colorAccent">#607D8B</item>
+    </style>
+
 
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/push_up_in</item>
         <item name="android:windowExitAnimation">@anim/slide_down_out</item>
     </style>
+
+
+
+
+
+
+
 </resources>

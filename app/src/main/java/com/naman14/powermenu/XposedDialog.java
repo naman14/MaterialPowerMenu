@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,15 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.os.Handler;
-import android.os.Looper;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class PowerDialog extends DialogFragment {
+/**
+ * Created by naman on 20/03/15.
+ */
+public class XposedDialog extends DialogFragment {
 
-    public PowerDialog(){
+    public XposedDialog(){
 
     }
 
@@ -52,6 +55,7 @@ public class PowerDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_power,container,false);
+
 
         revealView=(CircularRevealView) view.findViewById(R.id.reveal);
         backgroundColor = Color.parseColor("#ffffff");
@@ -89,7 +93,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -113,7 +117,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -139,7 +143,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -165,7 +169,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -191,7 +195,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -217,7 +221,7 @@ public class PowerDialog extends DialogFragment {
                     selectedView = v;
                 }
 
-                ((MainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity)getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -313,3 +317,4 @@ public class PowerDialog extends DialogFragment {
 
 
 }
+

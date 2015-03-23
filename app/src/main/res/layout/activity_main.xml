@@ -216,6 +216,38 @@
         android:textColor="#ffffff"
         android:textSize="14sp"/>
 </LinearLayout>
+            <LinearLayout
+                android:id="@+id/shortcut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:minHeight="64dp"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:layout_below="@id/about"
+                android:layout_marginTop="35dp"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Home screen Shortcut"
+                    android:paddingBottom="2dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Add a home screen shortcut to directly access Power Menu without need to open the app."
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"/>
+            </LinearLayout>
 
         </RelativeLayout>
         </ScrollView>

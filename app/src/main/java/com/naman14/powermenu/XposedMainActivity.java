@@ -43,7 +43,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
             public void run() {
                 revealView.reveal(p.x, p.y, color, 2, 440, null);
             }
-        }, 700);
+        }, 500);
 
 
         handler=new Handler();
@@ -52,7 +52,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
             public void run() {
                 showPowerDialog();
             }
-        }, 1000);
+        }, 800);
 
 
     }

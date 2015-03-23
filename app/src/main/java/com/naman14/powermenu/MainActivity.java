@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import eu.chainfire.libsuperuser.Shell;
 
 
@@ -27,7 +28,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     private View selectedView;
     private int backgroundColor;
     RelativeLayout layout;
-    LinearLayout source,rate,share,about;
+    LinearLayout source,rate,share,about,shortcut;
     private ImageView button;
     int maxX,maxY;
     android.os.Handler handler;
@@ -58,6 +59,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
         rate=(LinearLayout) findViewById(R.id.rate);
         share=(LinearLayout) findViewById(R.id.share);
         about=(LinearLayout) findViewById(R.id.about);
+        shortcut=(LinearLayout) findViewById(R.id.shortcut);
 
         Display mdisp = getWindowManager().getDefaultDisplay();
         Point mdispSize = new Point();
@@ -76,7 +78,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
                 showPowerDialog();
 
-                layout.setVisibility(View.GONE);
+               
 
            }
         });
@@ -132,6 +134,12 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
                 sAux = sAux + "https://play.google.com/store/apps/details?id=com.naman14.powermenu \n\n";
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
                 startActivity(Intent.createChooser(i, "Choose one"));
+            }
+        });
+        shortcut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addShortcut();
             }
         });
     }
@@ -194,6 +202,29 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
                 layout.setVisibility(View.VISIBLE);
             }
         }, 500);
+
+    }
+
+    private void addShortcut() {
+        //Adding shortcut for MainActivity
+        //on Home screen
+        Intent shortcutIntent = new Intent(getApplicationContext(),
+                XposedMainActivity.class);
+
+        shortcutIntent.setAction(Intent.ACTION_MAIN);
+
+        Intent addIntent = new Intent();
+        addIntent
+                .putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "PowerMenuShortcut");
+        addIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        addIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
+                Intent.ShortcutIconResource.fromContext(getApplicationContext(),
+                        R.drawable.ic_reboot));
+        addIntent
+                .setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+        getApplicationContext().sendBroadcast(addIntent);
 
     }
 }

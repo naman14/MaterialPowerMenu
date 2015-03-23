@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -50,7 +51,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
 
         revealView=(CircularRevealView) findViewById(R.id.reveal);
-        backgroundColor = Color.parseColor("#303030");
+        backgroundColor = Color.parseColor("#11303030");
          button =(ImageView) findViewById(R.id.button);
         mRootStatusSummary=(TextView) findViewById(R.id.rootstatus);
         layout=(RelativeLayout) findViewById(R.id.layout);
@@ -78,7 +79,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
                 showPowerDialog();
 
-               
+
 
            }
         });
@@ -225,6 +226,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
         addIntent
                 .setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         getApplicationContext().sendBroadcast(addIntent);
+        Toast.makeText(getApplicationContext(),"Added Home Screen Shortcurt",Toast.LENGTH_SHORT).show();
 
     }
 }

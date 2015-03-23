@@ -10,15 +10,12 @@
         android:layout_height="match_parent"
        >
 
-    <com.naman14.powermenu.CircularRevealView
-        android:id="@+id/reveal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#303030"/>
+
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#303030">
 
 
 
@@ -251,5 +248,11 @@
 
         </RelativeLayout>
         </ScrollView>
+
+        <com.naman14.powermenu.CircularRevealView
+            android:id="@+id/reveal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
     </FrameLayout>
 </LinearLayout>

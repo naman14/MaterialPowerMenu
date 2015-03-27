@@ -181,38 +181,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-<LinearLayout
-    android:id="@+id/about"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:minHeight="64dp"
-    android:clickable="true"
-    android:orientation="vertical"
-    android:layout_below="@id/layout2"
-    android:layout_marginTop="35dp"
-    android:gravity="center_vertical"
-    android:padding="8dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Developed by Naman Dwivedi"
-        android:paddingBottom="2dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Material Power Menu is completely free and Ad-Free, If you liked this app you can donate to me by purchasing one of my paid app. Click here to see my other apps."
-        style="@style/TextAppearance.AppCompat.Caption"
-        android:textColor="#ffffff"
-        android:textSize="14sp"/>
-</LinearLayout>
             <LinearLayout
                 android:id="@+id/shortcut"
                 android:layout_width="match_parent"
@@ -221,7 +189,7 @@
                 android:minHeight="64dp"
                 android:clickable="true"
                 android:orientation="vertical"
-                android:layout_below="@id/about"
+                android:layout_below="@id/layout2"
                 android:layout_marginTop="35dp"
                 android:gravity="center_vertical"
                 android:padding="8dp">
@@ -245,6 +213,40 @@
                     android:textColor="#ffffff"
                     android:textSize="14sp"/>
             </LinearLayout>
+
+
+            <LinearLayout
+    android:id="@+id/about"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:minHeight="64dp"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:layout_below="@id/shortcut"
+    android:layout_marginTop="35dp"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developed by Naman Dwivedi"
+        android:paddingBottom="2dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Material Power Menu is completely free and Ad-Free, If you liked this app you can donate to me by purchasing one of my paid app. Click here to see my other apps."
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#ffffff"
+        android:textSize="14sp"/>
+</LinearLayout>
 
         </RelativeLayout>
         </ScrollView>

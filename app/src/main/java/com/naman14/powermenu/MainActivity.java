@@ -217,7 +217,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
         Intent addIntent = new Intent();
         addIntent
                 .putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "PowerMenuShortcut");
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "Power Menu");
         addIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         addIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
@@ -227,6 +227,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
                 .setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         getApplicationContext().sendBroadcast(addIntent);
         Toast.makeText(getApplicationContext(),"Added Home Screen Shortcurt",Toast.LENGTH_SHORT).show();
+        finish();
 
     }
 }

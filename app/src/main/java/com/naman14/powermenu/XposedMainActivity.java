@@ -59,9 +59,9 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
 
     private void showPowerDialog() {
         FragmentManager fm = getFragmentManager();
-        XposedDialog editNameDialog = new XposedDialog();
-        editNameDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.AppThemeDialog);
-        editNameDialog.show(fm, "fragment_power");
+        XposedDialog powerDialog = new XposedDialog();
+        powerDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.AppThemeDialog);
+        powerDialog.show(fm, "fragment_power");
 
     }
 

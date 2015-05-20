@@ -177,8 +177,8 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
     private void showPowerDialog() {
         FragmentManager fm = getFragmentManager();
-        PowerDialog editNameDialog = new PowerDialog();
-        editNameDialog.show(fm, "fragment_power");
+        PowerDialog powerDialog = new PowerDialog();
+        powerDialog.show(fm, "fragment_power");
 
     }
     @Override

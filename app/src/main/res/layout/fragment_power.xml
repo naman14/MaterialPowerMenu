@@ -7,7 +7,6 @@
     android:layout_width="wrap_content"
     android:layout_gravity="center"
     android:layout_height="wrap_content"
-
     >
 
     <com.naman14.powermenu.CircularRevealView
@@ -32,7 +31,9 @@
         android:layoutAnimation="@anim/layout_controller_push_up_in"
         android:id="@+id/power"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
             android:layout_width="50dp"
@@ -51,11 +52,12 @@
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-
         android:id="@+id/reboot"
         android:layoutAnimation="@anim/layout_controller_push_up_in"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
             android:layout_width="50dp"
@@ -77,7 +79,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/soft_reboot"
         android:layoutAnimation="@anim/layout_controller_push_up_in"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
             android:layout_width="50dp"
@@ -145,7 +149,9 @@
             android:layout_weight="1"
             android:layout_gravity="left"
             android:paddingTop="15dp"
-            android:id="@+id/recovery">
+            android:id="@+id/recovery"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true">
             <ImageView
                 android:id="@+id/irecovery"
                 android:layout_width="50dp"
@@ -175,7 +181,9 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:paddingTop="15dp"
-            android:id="@+id/bootloader">
+            android:id="@+id/bootloader"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true">
             <ImageView
                 android:id="@+id/ibootloader"
                 android:layout_width="50dp"
@@ -205,7 +213,9 @@
             android:layout_weight="1"
             android:layout_gravity="right"
             android:paddingTop="15dp"
-            android:id="@+id/safemode">
+            android:id="@+id/safemode"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true">
             <ImageView
                 android:id="@+id/isafe"
                 android:layout_width="50dp"

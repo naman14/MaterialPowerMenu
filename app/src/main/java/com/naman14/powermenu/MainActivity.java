@@ -74,11 +74,16 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
                 final int color = Color.parseColor("#00bcd4");
                 final Point p = getLocationInView(revealView, v);
 
-                    revealView.reveal(p.x, p.y, color, v.getHeight() / 2, 440, null);
-                    selectedView = v;
+                revealView.reveal(p.x, p.y, color, v.getHeight() / 2, 440, null);
+                selectedView = v;
 
-                showPowerDialog();
-
+                handler=new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showPowerDialog();
+                    }
+                }, 50);
 
 
            }

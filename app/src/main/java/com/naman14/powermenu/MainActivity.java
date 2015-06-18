@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.view.View;
@@ -22,7 +22,7 @@ import android.widget.Toast;
 import eu.chainfire.libsuperuser.Shell;
 
 
-public class MainActivity extends ActionBarActivity implements DialogInterface.OnDismissListener{
+public class MainActivity extends AppCompatActivity implements DialogInterface.OnDismissListener{
 
 
     private CircularRevealView revealView;

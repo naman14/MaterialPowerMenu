@@ -1,253 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
-  <FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_gravity="center"
     android:layout_height="wrap_content"
-    >
+    android:layout_gravity="center">
 
     <com.naman14.powermenu.CircularRevealView
         android:id="@+id/reveal"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_gravity="center"
-       />
+        android:layout_gravity="center" />
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/frame">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layoutAnimation="@anim/layout_controller_push_up_in"
-        android:id="@+id/power"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_power"
-            android:layout_margin="15dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Power Off"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center_vertical" />
-
-        </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:id="@+id/reboot"
-        android:layoutAnimation="@anim/layout_controller_push_up_in"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_reboot"
-            android:layout_margin="15dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:textColor="#000000"
-            android:text="Reboot"
-            android:textSize="18sp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center_vertical" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/soft_reboot"
-        android:layoutAnimation="@anim/layout_controller_push_up_in"
-        android:orientation="horizontal"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_soft_reboot"
-            android:layout_margin="15dp"/>
-
-        <LinearLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:text="Soft Reboot"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center_vertical" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:id="@+id/power"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-9dp"
-                android:layoutAnimation="@anim/layout_controller_push_up_in">
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layoutAnimation="@anim/layout_controller_push_up_in"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_power" />
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:text="Power Off"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reboot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layoutAnimation="@anim/layout_controller_push_up_in"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_reboot" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:text="Reboot"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/soft_reboot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layoutAnimation="@anim/layout_controller_push_up_in"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_soft_reboot" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:text="Soft Reboot"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="-9dp"
+                        android:layoutAnimation="@anim/layout_controller_push_up_in">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Simply restarts the Android UI by killing zygote process"
+                            android:textColor="#000000"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:background="#b6b6b6" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:gravity="center"
+                android:layoutAnimation="@anim/layout_controller_fade_in"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/recovery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Simply restarts the Android UI by killing zygote process"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#000000"
-                    android:textSize="9sp"/>
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/irecovery"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center"
+                        android:src="@drawable/recovery"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Recovery"
+                        android:textColor="#000000"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bootloader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/ibootloader"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center"
+                        android:src="@drawable/ic_bootloader"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Bootloader"
+                        android:textColor="#000000"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/safemode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/isafe"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center"
+                        android:src="@drawable/ic_safe"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Safe Mode"
+                        android:textColor="#000000"
+                        android:textSize="10sp" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
 
-    </LinearLayout>
+    </FrameLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#b6b6b6"/>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layoutAnimation="@anim/layout_controller_fade_in"
-        android:layout_gravity="fill_horizontal"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_gravity="left"
-            android:paddingTop="15dp"
-            android:id="@+id/recovery"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true">
-            <ImageView
-                android:id="@+id/irecovery"
-                android:layout_width="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_height="50dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/recovery"
-
-                />
-            <TextView
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Recovery"
-                android:textColor="#000000"
-                android:textSize="10sp"
-                />
-            </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:paddingTop="15dp"
-            android:id="@+id/bootloader"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true">
-            <ImageView
-                android:id="@+id/ibootloader"
-                android:layout_width="50dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_height="50dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_bootloader"
-
-                />
-            <TextView
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bootloader"
-                android:textColor="#000000"
-                android:textSize="10sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:paddingTop="15dp"
-            android:id="@+id/safemode"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true">
-            <ImageView
-                android:id="@+id/isafe"
-                android:layout_width="50dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_safe"
-
-                />
-            <TextView
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Safe Mode"
-                android:textColor="#000000"
-                android:textSize="10sp"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-    </LinearLayout>
-
-
-</FrameLayout>
     <FrameLayout
+        android:id="@+id/frame2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/frame2"
         android:layout_gravity="center"
         android:layout_marginRight="20dp"
         android:visibility="gone">
@@ -255,15 +262,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ProgressBar
+                android:id="@+id/progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:id="@+id/progress"/>
+                android:indeterminate="true" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -271,32 +278,34 @@
                 android:orientation="vertical">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Power Off"
-                android:id="@+id/status"
-                android:layout_marginLeft="10dp"
-                android:textColor="#ffffff"
-                android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Power Off"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layoutAnimation="@anim/layout_controller_push_up_in">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Shutting Down..."
-                    android:id="@+id/status_detail"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#ffffff"
-                    android:textSize="10sp"/>
+
+                    <TextView
+                        android:id="@+id/status_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Shutting Down..."
+                        android:textColor="#ffffff"
+                        android:textSize="10sp" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            </LinearLayout>
-        </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
 
 </FrameLayout>
 

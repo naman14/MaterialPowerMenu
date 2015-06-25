@@ -22,23 +22,23 @@ import android.widget.Toast;
 import eu.chainfire.libsuperuser.Shell;
 
 
-public class MainActivity extends AppCompatActivity implements DialogInterface.OnDismissListener{
+public class MainActivity extends AppCompatActivity implements DialogInterface.OnDismissListener {
 
 
     private CircularRevealView revealView;
     private View selectedView;
     private int backgroundColor;
     RelativeLayout layout;
-    LinearLayout source,rate,share,about,shortcut;
+    LinearLayout source, rate, share, about, shortcut;
     private ImageView button;
-    int maxX,maxY;
+    int maxX, maxY;
     android.os.Handler handler;
     private static final int BG_PRIO = android.os.Process.THREAD_PRIORITY_BACKGROUND;
     protected TextView mRootStatusSummary;
 
-    String Urlgithub="https://github.com/naman14/MaterialPowerMenu";
-    String Urlrate="https://play.google.com/store/apps/details?id=com.naman14.powermenu";
-    String Urlapps="https://play.google.com/store/apps/developer?id=Naman14";
+    String Urlgithub = "https://github.com/naman14/MaterialPowerMenu";
+    String Urlrate = "https://play.google.com/store/apps/details?id=com.naman14.powermenu";
+    String Urlapps = "https://play.google.com/store/apps/developer?id=Naman14";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,23 +50,23 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         getSupportActionBar().setTitle("Material Power Menu");
 
 
-        revealView=(CircularRevealView) findViewById(R.id.reveal);
+        revealView = (CircularRevealView) findViewById(R.id.reveal);
         backgroundColor = Color.parseColor("#11303030");
-         button =(ImageView) findViewById(R.id.button);
-        mRootStatusSummary=(TextView) findViewById(R.id.rootstatus);
-        layout=(RelativeLayout) findViewById(R.id.layout);
+        button = (ImageView) findViewById(R.id.button);
+        mRootStatusSummary = (TextView) findViewById(R.id.rootstatus);
+        layout = (RelativeLayout) findViewById(R.id.layout);
 
-        source=(LinearLayout) findViewById(R.id.source);
-        rate=(LinearLayout) findViewById(R.id.rate);
-        share=(LinearLayout) findViewById(R.id.share);
-        about=(LinearLayout) findViewById(R.id.about);
-        shortcut=(LinearLayout) findViewById(R.id.shortcut);
+        source = (LinearLayout) findViewById(R.id.source);
+        rate = (LinearLayout) findViewById(R.id.rate);
+        share = (LinearLayout) findViewById(R.id.share);
+        about = (LinearLayout) findViewById(R.id.about);
+        shortcut = (LinearLayout) findViewById(R.id.shortcut);
 
         Display mdisp = getWindowManager().getDefaultDisplay();
         Point mdispSize = new Point();
         mdisp.getSize(mdispSize);
         maxX = mdispSize.x;
-         maxY = mdispSize.y;
+        maxY = mdispSize.y;
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
                 revealView.reveal(p.x, p.y, color, v.getHeight() / 2, 440, null);
                 selectedView = v;
 
-                handler=new Handler();
+                handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
                 }, 50);
 
 
-           }
+            }
         });
         new Thread(new Runnable() {
             @Override
@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
             }
         });
     }
+
     private static void setThreadPrio(int prio) {
         android.os.Process.setThreadPriority(prio);
     }
@@ -167,15 +168,13 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
     }
 
 
-
-
     public void revealFromTop() {
         final int color = Color.parseColor("#ffffff");
 
 
-        final Point p = new Point(maxX/2,maxY/2);
+        final Point p = new Point(maxX / 2, maxY / 2);
 
-            revealView.reveal(p.x, p.y, color, button.getHeight() / 2, 440, null);
+        revealView.reveal(p.x, p.y, color, button.getHeight() / 2, 440, null);
 
 
     }
@@ -186,12 +185,13 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         powerDialog.show(fm, "fragment_power");
 
     }
+
     @Override
     public void onDismiss(final DialogInterface dialog) {
-        View v=button;
-        final Point p=getLocationInView(revealView, v);
+        View v = button;
+        final Point p = getLocationInView(revealView, v);
 
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         }, 300);
 
 
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         addIntent
                 .setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         getApplicationContext().sendBroadcast(addIntent);
-        Toast.makeText(getApplicationContext(),"Added Home Screen Shortcurt",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Added Home Screen Shortcurt", Toast.LENGTH_SHORT).show();
         finish();
 
     }

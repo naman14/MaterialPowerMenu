@@ -13,12 +13,12 @@ import android.view.Display;
 /**
  * Created by naman on 20/03/15.
  */
-public class XposedMainActivity extends Activity implements DialogInterface.OnDismissListener{
+public class XposedMainActivity extends Activity implements DialogInterface.OnDismissListener {
 
     private CircularRevealView revealView;
     private int backgroundColor;
     android.os.Handler handler;
-    int maxX,maxY;
+    int maxX, maxY;
 
 
     @Override
@@ -26,7 +26,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_xposed);
 
-        revealView=(CircularRevealView) findViewById(R.id.reveal);
+        revealView = (CircularRevealView) findViewById(R.id.reveal);
 
         Display mdisp = getWindowManager().getDefaultDisplay();
         Point mdispSize = new Point();
@@ -35,9 +35,9 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
         maxY = mdispSize.y;
 
         final int color = Color.parseColor("#00bcd4");
-        final Point p = new Point(maxX/2,maxY/2);
+        final Point p = new Point(maxX / 2, maxY / 2);
 
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +46,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
         }, 500);
 
 
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -60,7 +60,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
     private void showPowerDialog() {
         FragmentManager fm = getFragmentManager();
         XposedDialog powerDialog = new XposedDialog();
-        powerDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.AppThemeDialog);
+        powerDialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.AppThemeDialog);
         powerDialog.show(fm, "fragment_power");
 
     }
@@ -68,7 +68,7 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
     public void revealFromTop() {
         final int color = Color.parseColor("#ffffff");
 
-        final Point p = new Point(maxX/2,maxY/2);
+        final Point p = new Point(maxX / 2, maxY / 2);
 
         revealView.reveal(p.x, p.y, color, 2, 440, null);
 
@@ -78,27 +78,25 @@ public class XposedMainActivity extends Activity implements DialogInterface.OnDi
     @Override
     public void onDismiss(final DialogInterface dialog) {
 
-        final Point p=new Point(maxX/2,maxY/2);
+        final Point p = new Point(maxX / 2, maxY / 2);
 
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
             }
         }, 300);
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 finish();
-                overridePendingTransition(0,0);
+                overridePendingTransition(0, 0);
             }
         }, 500);
 
 
-
-
     }
 
-    }
+}

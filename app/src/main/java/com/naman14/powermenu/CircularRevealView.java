@@ -3,6 +3,7 @@ package com.naman14.powermenu;
 /**
  * Created by naman on 18/03/15.
  */
+
 import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Color;

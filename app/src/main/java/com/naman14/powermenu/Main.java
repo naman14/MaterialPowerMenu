@@ -14,7 +14,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 /**
  * Created by naman on 20/03/15.
  */
-public class Main  implements IXposedHookLoadPackage, IXposedHookZygoteInit{
+public class Main implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
     public static final String PACKAGE_NAME = Main.class.getPackage().getName();
 
@@ -39,26 +39,27 @@ public class Main  implements IXposedHookLoadPackage, IXposedHookZygoteInit{
         final Class<?> globalActionsClass = XposedHelpers.findClass(CLASS_GLOBAL_ACTIONS, lpparam.classLoader);
 
 
-        XposedBridge.hookAllConstructors(globalActionsClass,new XC_MethodHook() {
+        XposedBridge.hookAllConstructors(globalActionsClass, new XC_MethodHook() {
             @Override
             protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
                 mContext = (Context) param.args[0];
             }
         });
 
-            XposedHelpers.findAndHookMethod(CLASS_GLOBAL_POWER_ACTIONS,lpparam.classLoader,"onPress",new XC_MethodReplacement() {
-                @Override
-                protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+        XposedHelpers.findAndHookMethod(CLASS_GLOBAL_POWER_ACTIONS, lpparam.classLoader, "onPress", new XC_MethodReplacement() {
+            @Override
+            protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
 
-                   showDialog();
-                    return null;
-                }
+                showDialog();
+                return null;
+            }
 
-            });
+        });
 
 
     }
-    private  void showDialog() {
+
+    private void showDialog() {
         if (mContext == null) {
 
             return;
@@ -67,7 +68,7 @@ public class Main  implements IXposedHookLoadPackage, IXposedHookZygoteInit{
         try {
 
             context = mContext.createPackageContext(PACKAGE_NAME, Context.CONTEXT_IGNORE_SECURITY);
-            Intent intent=new Intent(context,XposedMainActivity.class);
+            Intent intent = new Intent(context, XposedMainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);

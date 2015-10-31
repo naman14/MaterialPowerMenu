@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.naman14.powermenu.xposed.XposedMainActivity;
+
 import eu.chainfire.libsuperuser.Shell;
 
 

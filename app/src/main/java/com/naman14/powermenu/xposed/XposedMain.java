@@ -1,4 +1,4 @@
-package com.naman14.powermenu;
+package com.naman14.powermenu.xposed;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,9 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 /**
  * Created by naman on 20/03/15.
  */
-public class Main implements IXposedHookLoadPackage, IXposedHookZygoteInit {
+public class XposedMain implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
-    public static final String PACKAGE_NAME = Main.class.getPackage().getName();
+    public static final String PACKAGE_NAME = XposedMain.class.getPackage().getName();
 
     public static final String CLASS_GLOBAL_ACTIONS = "com.android.internal.policy.impl.GlobalActions";
     public static final String CLASS_GLOBAL_POWER_ACTIONS = "com.android.internal.policy.impl.GlobalActions.PowerAction";

@@ -1,4 +1,4 @@
-package com.naman14.powermenu;
+package com.naman14.powermenu.xposed;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -9,6 +9,9 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Display;
+
+import com.naman14.powermenu.CircularRevealView;
+import com.naman14.powermenu.R;
 
 /**
  * Created by naman on 20/03/15.

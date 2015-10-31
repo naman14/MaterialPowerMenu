@@ -1,4 +1,4 @@
-package com.naman14.powermenu;
+package com.naman14.powermenu.xposed;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -18,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.naman14.powermenu.CircularRevealView;
+import com.naman14.powermenu.R;
+
 import eu.chainfire.libsuperuser.Shell;
 
 /**
@@ -25,17 +28,17 @@ import eu.chainfire.libsuperuser.Shell;
  */
 public class XposedDialog extends DialogFragment {
 
-    public XposedDialog(){
+    public XposedDialog() {
 
     }
 
-    LinearLayout power,reboot,soft_reboot,recovery,bootloader,safemode;
-    FrameLayout frame,frame2;
+    LinearLayout power, reboot, soft_reboot, recovery, bootloader, safemode;
+    FrameLayout frame, frame2;
     private CircularRevealView revealView;
     private View selectedView;
     private int backgroundColor;
     ProgressBar progress;
-    TextView status,status_detail;
+    TextView status, status_detail;
 
     private static final String SHUTDOWN_BROADCAST
             = "am broadcast android.intent.action.ACTION_SHUTDOWN";
@@ -54,25 +57,25 @@ public class XposedDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_power,container,false);
+        View view = inflater.inflate(R.layout.fragment_power, container, false);
 
 
-        revealView=(CircularRevealView) view.findViewById(R.id.reveal);
+        revealView = (CircularRevealView) view.findViewById(R.id.reveal);
         backgroundColor = Color.parseColor("#ffffff");
-        power=(LinearLayout) view.findViewById(R.id.power);
-        reboot=(LinearLayout) view.findViewById(R.id.reboot);
-        soft_reboot=(LinearLayout) view.findViewById(R.id.soft_reboot);
-        recovery=(LinearLayout) view.findViewById(R.id.recovery);
-        bootloader=(LinearLayout) view.findViewById(R.id.bootloader);
-        safemode=(LinearLayout) view.findViewById(R.id.safemode);
+        power = (LinearLayout) view.findViewById(R.id.power);
+        reboot = (LinearLayout) view.findViewById(R.id.reboot);
+        soft_reboot = (LinearLayout) view.findViewById(R.id.soft_reboot);
+        recovery = (LinearLayout) view.findViewById(R.id.recovery);
+        bootloader = (LinearLayout) view.findViewById(R.id.bootloader);
+        safemode = (LinearLayout) view.findViewById(R.id.safemode);
 
-        frame=(FrameLayout) view.findViewById(R.id.frame);
-        frame2=(FrameLayout) view.findViewById(R.id.frame2);
+        frame = (FrameLayout) view.findViewById(R.id.frame);
+        frame2 = (FrameLayout) view.findViewById(R.id.frame2);
 
-        status=(TextView) view.findViewById(R.id.status);
-        status_detail=(TextView) view.findViewById(R.id.status_detail);
+        status = (TextView) view.findViewById(R.id.status);
+        status_detail = (TextView) view.findViewById(R.id.status_detail);
 
-        progress=(ProgressBar) view.findViewById(R.id.progress);
+        progress = (ProgressBar) view.findViewById(R.id.progress);
 
 
         progress.getIndeterminateDrawable().setColorFilter(
@@ -89,11 +92,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -113,11 +116,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -139,11 +142,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -165,11 +168,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -191,11 +194,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -217,11 +220,11 @@ public class XposedDialog extends DialogFragment {
                     revealView.hide(p.x, p.y, backgroundColor, 0, 330, null);
                     selectedView = null;
                 } else {
-                    revealView.reveal(p.x/2, p.y/2, color, v.getHeight() / 2, 440, null);
+                    revealView.reveal(p.x / 2, p.y / 2, color, v.getHeight() / 2, 440, null);
                     selectedView = v;
                 }
 
-                ((XposedMainActivity)getActivity()).revealFromTop();
+                ((XposedMainActivity) getActivity()).revealFromTop();
                 frame.setVisibility(View.GONE);
                 frame2.setVisibility(View.VISIBLE);
 
@@ -277,7 +280,8 @@ public class XposedDialog extends DialogFragment {
         }
     }
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
 
         Window window = getDialog().getWindow();
@@ -295,6 +299,7 @@ public class XposedDialog extends DialogFragment {
             ((DialogInterface.OnDismissListener) activity).onDismiss(dialog);
         }
     }
+
     private Point getLocationInView(View src, View target) {
         final int[] l0 = new int[2];
         src.getLocationOnScreen(l0);
@@ -307,13 +312,13 @@ public class XposedDialog extends DialogFragment {
 
         return new Point(l1[0], l1[1]);
     }
+
     @Override
     public void onActivityCreated(Bundle arg0) {
         super.onActivityCreated(arg0);
         getDialog().getWindow()
                 .getAttributes().windowAnimations = R.style.DialogAnimation;
     }
-
 
 
 }

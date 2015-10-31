@@ -18,8 +18,7 @@ package com.naman14.powermenu;
  */
 
 
-
-        import android.view.animation.Interpolator;
+import android.view.animation.Interpolator;
 
 /**
  * A pre-baked bezier-curved interpolator for indeterminate progress animations.
@@ -45,10 +44,10 @@ public final class BakedBezierInterpolator implements Interpolator {
      * P1 (0.4, 0)
      * P2 (0.2, 1.0)
      * P3 (1.0, 1.0)
-     *
+     * <p/>
      * Values sampled with x at regular intervals between 0 and 1.
      */
-    private static final float[] VALUES = new float[] {
+    private static final float[] VALUES = new float[]{
             0.0f, 0.0002f, 0.0009f, 0.0019f, 0.0036f, 0.0059f, 0.0086f, 0.0119f, 0.0157f, 0.0209f,
             0.0257f, 0.0321f, 0.0392f, 0.0469f, 0.0566f, 0.0656f, 0.0768f, 0.0887f, 0.1033f, 0.1186f,
             0.1349f, 0.1519f, 0.1696f, 0.1928f, 0.2121f, 0.237f, 0.2627f, 0.2892f, 0.3109f, 0.3386f,
@@ -74,7 +73,7 @@ public final class BakedBezierInterpolator implements Interpolator {
         }
 
         int position = Math.min(
-                (int)(input * (VALUES.length - 1)),
+                (int) (input * (VALUES.length - 1)),
                 VALUES.length - 2);
 
         float quantized = position * STEP_SIZE;

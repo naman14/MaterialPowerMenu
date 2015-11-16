@@ -65,7 +65,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:27:17
 	android:name
 		ADDED from AndroidManifest.xml:27:27
-activity#com.naman14.powermenu.XposedMainActivity
+activity#com.naman14.powermenu.xposed.XposedMainActivity
 ADDED from AndroidManifest.xml:30:9
 	android:label
 		ADDED from AndroidManifest.xml:32:13

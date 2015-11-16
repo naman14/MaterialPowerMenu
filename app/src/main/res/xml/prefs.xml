@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preference_screen">
+
+    <PreferenceCategory android:title="Root">
+
+        <Preference
+            android:key="root_status"
+            android:summary="Root is not available. App will not work"
+            android:title="Root not available" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="General">
+
+        <ListPreference
+            android:defaultValue="light"
+            android:entries="@array/pref_theme_entries"
+            android:entryValues="@array/pref_theme_values"
+            android:key="pref_theme"
+            android:summary="%s"
+            android:title="Theme" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_autolaunch"
+            android:summary="Auto launch power menu when app is launched"
+            android:title="Auto launch" />
+
+        <Preference
+            android:key="pref_homescreen_shortcut"
+            android:summary="Add a home screen shortcut to directly access Power Menu without need to open the app."
+            android:title="Home screen shortcut" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+
+        <Preference
+            android:key="source_github"
+            android:summary="Material power menu is open source. Checkout the source on Github."
+            android:title="Source" />
+
+        <Preference
+            android:key="rate_app"
+            android:summary="Liked the app? Rate it on Play Store"
+            android:title="Rate" />
+
+        <Preference
+            android:key="share_app"
+            android:summary="Liked the app? Share it among your friends"
+            android:title="Share" />
+
+
+        <Preference
+            android:key="pref_about_donate"
+            android:summary="Material Power Menu is completely free and Ad-Free, If you liked this app you can donate to me by purchasing one of my paid app. Click here to see my other apps."
+            android:title="Developed by Naman Dwivedi" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

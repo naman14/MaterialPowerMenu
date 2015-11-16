@@ -60,5 +60,13 @@
 
     </PreferenceCategory>
 
+    <!--empty preference to occupy space and to prevent overlap of fab with preferences-->
+    <PreferenceCategory
+        android:title="">
+
+        <Preference
+            android:title=""
+            android:summary=""/>
+    </PreferenceCategory>
 
 </PreferenceScreen>

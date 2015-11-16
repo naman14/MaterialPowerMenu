@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="window_background_dark">#212121</color>
+    <color name="window_background_black">#000000</color>
+
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#0097A7</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimaryDarkTheme">#263238</color>
+    <color name="colorPrimaryDarkDarkTheme">#21272b</color>
+    <color name="colorAccentDarkTheme">#FF4081</color>
+
+    <color name="colorPrimaryBlack">#000000</color>
+    <color name="colorPrimaryDarkBlack">#000000</color>
+    <color name="colorAccentBlack">#ffffff</color>
+</resources>

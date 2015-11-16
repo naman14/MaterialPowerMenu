@@ -14,12 +14,14 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.naman14.powermenu.CircularRevealView;
 import com.naman14.powermenu.R;
+import com.naman14.powermenu.TextDrawable;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -237,6 +239,30 @@ public class XposedDialog extends DialogFragment {
             }
         });
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+        TextDrawable drawable1 = TextDrawable.builder()
+                .buildRound("P", Color.parseColor("#d32f2f"));
+        ((ImageView) view.findViewById(R.id.ipower)).setImageDrawable(drawable1);
+
+        TextDrawable drawable2 = TextDrawable.builder()
+                .buildRound("S", Color.parseColor("#009688"));
+        ((ImageView) view.findViewById(R.id.isafe)).setImageDrawable(drawable2);
+
+        TextDrawable drawable3 = TextDrawable.builder()
+                .buildRound("B", Color.parseColor("#009688"));
+        ((ImageView) view.findViewById(R.id.ibootloader)).setImageDrawable(drawable3);
+
+        TextDrawable drawable4 = TextDrawable.builder()
+                .buildRound("R", Color.parseColor("#009688"));
+        ((ImageView) view.findViewById(R.id.irecovery)).setImageDrawable(drawable4);
+
+        TextDrawable drawable5 = TextDrawable.builder()
+                .buildRound("S", Color.parseColor("#e91e63"));
+        ((ImageView) view.findViewById(R.id.isoftreboot)).setImageDrawable(drawable5);
+
+        TextDrawable drawable6 = TextDrawable.builder()
+                .buildRound("R", Color.parseColor("#3f51b5"));
+        ((ImageView) view.findViewById(R.id.ireboot)).setImageDrawable(drawable6);
 
 
         return view;

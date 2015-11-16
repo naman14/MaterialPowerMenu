@@ -6,250 +6,38 @@
     tools:context=".MainActivity">
 
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#303030">
+        android:orientation="vertical">
 
-
-        <RelativeLayout
-            android:id="@+id/layout"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#607d8b"
-                android:minHeight="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        <FrameLayout
+            android:id="@+id/pref_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:id="@+id/lroot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/toolbar"
-                android:background="#37474f"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Root Status"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/rootstatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Unavailable"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
-
-
-            <ImageView
-                android:id="@+id/button"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_below="@id/lroot"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="22dp"
-                android:src="@drawable/power" />
-
-
-            <LinearLayout
-                android:id="@+id/layout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/button"
-                android:layout_gravity="fill_horizontal"
-                android:layout_marginTop="40dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/source"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
-
-                    <ImageView
-
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/app_name"
-                        android:gravity="center"
-                        android:src="@drawable/github"
-
-                        />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Source"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/rate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
-
-                    <ImageView
-
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/app_name"
-                        android:gravity="center"
-                        android:src="@drawable/rate" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Rate"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
-
-                    <ImageView
-
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/app_name"
-                        android:gravity="center"
-                        android:src="@drawable/share"
-
-                        />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Share"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/shortcut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout2"
-                android:layout_marginTop="35dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:minHeight="64dp"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:paddingBottom="2dp"
-                    android:text="Add Home screen Shortcut"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Add a home screen shortcut to directly access Power Menu without need to open the app."
-                    android:textColor="#ffffff"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/about"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/shortcut"
-                android:layout_marginTop="35dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:minHeight="64dp"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:paddingBottom="2dp"
-                    android:text="Developed by Naman Dwivedi"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Material Power Menu is completely free and Ad-Free, If you liked this app you can donate to me by purchasing one of my paid app. Click here to see my other apps."
-                    android:textColor="#ffffff"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-        </RelativeLayout>
-    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/FabStyle"
+        android:layout_gravity="bottom|right|end"
+        android:src="@drawable/power" />
 
     <com.naman14.powermenu.CircularRevealView
         android:id="@+id/reveal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent" />
+
 </FrameLayout>
 

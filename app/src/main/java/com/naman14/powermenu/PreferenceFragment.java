@@ -59,7 +59,7 @@ public class PreferenceFragment extends android.preference.PreferenceFragment {
             }
         });
 
-        share =findPreference("share_app");
+        share = findPreference("share_app");
         share.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
@@ -103,8 +103,10 @@ public class PreferenceFragment extends android.preference.PreferenceFragment {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
-                            if ( rootstatus!= null) {
+                            if (rootstatus != null) {
                                 rootstatus.setTitle("Root available");
+
+                                rootstatus.setSummary("Root is available. App should work fine");
                             }
                         }
                     });

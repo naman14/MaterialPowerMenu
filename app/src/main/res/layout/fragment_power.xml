@@ -29,7 +29,8 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layoutAnimation="@anim/layout_controller_push_up_in"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:focusable="true">
 
                 <ImageView
                     android:id="@+id/ipower"
@@ -55,7 +56,8 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layoutAnimation="@anim/layout_controller_push_up_in"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:focusable="true">
 
                 <ImageView
                     android:id="@+id/ireboot"
@@ -81,7 +83,8 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layoutAnimation="@anim/layout_controller_push_up_in"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:focusable="true">
 
                 <ImageView
                     android:id="@+id/isoftreboot"
@@ -152,7 +155,8 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:paddingTop="15dp"
+                    android:focusable="true">
 
                     <ImageView
                         android:id="@+id/irecovery"
@@ -183,7 +187,8 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:paddingTop="15dp"
+                    android:focusable="true">
 
                     <ImageView
                         android:id="@+id/ibootloader"
@@ -214,7 +219,8 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:paddingTop="15dp"
+                    android:focusable="true">
 
                     <ImageView
                         android:id="@+id/isafe"
